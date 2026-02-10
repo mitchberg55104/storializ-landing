@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storyaliz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&family=Libre+Baskerville&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f4e4c1;
+      --red: #b83e32;
+      --gray: #4a5a66;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--cream);
+      color: #000;
+    }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 9px;
+      padding: 0 16px;
+      height: 44px;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    .nav a {
+      font-size: 12px;
+      color: #000;
+      text-decoration: underline;
+      width: 60px;
+      text-align: center;
+      line-height: 16px;
+      letter-spacing: 0.4px;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      gap: 33px;
+      align-items: center;
+      padding: 64px 16px 0;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    .hero-placeholder {
+      background: #d9d9d9;
+      min-height: 480px;
+      flex: 0 0 33%;
+    }
+
+    .hero-image {
+      flex: 1;
+      max-height: 661px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* CAROUSEL */
+    .carousel {
+      background-color: var(--red);
+      padding: 2px 0;
+      margin-top: 64px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      height: 57px;
+    }
+
+    .carousel-text {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 24px;
+      color: var(--cream);
+      text-align: center;
+    }
+
+    /* CONTENT SECTIONS */
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      padding: 64px 16px;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    .section-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-placeholder {
+      background: #d9d9d9;
+      flex: 0 0 690px;
+      max-width: 38%;
+    }
+
+    .section-placeholder.h354 { height: 354px; }
+    .section-placeholder.h328 { height: 328px; }
+    .section-placeholder.h360 { height: 360px; }
+
+    .section-card {
+      background: var(--cream);
+      border: 1px solid var(--gray);
+      border-radius: 16px;
+      padding: 8px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .section-card h2 {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-card .body-text {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0px;
+    }
+
+    .section-card .body-text p {
+      margin-bottom: 10px;
+    }
+
+    .section-card .body-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* BUTTONS */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--red);
+      border-radius: 20px;
+      background: transparent;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+      color: var(--red);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(184, 62, 50, 0.08);
+    }
+
+    .btn-outline svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--red);
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: var(--gray);
+      color: var(--cream);
+      display: flex;
+      gap: 64px;
+      padding: 64px;
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 0.4px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 120px;
+    }
+
+    .footer-col h3 {
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 0.4px;
+      margin-bottom: 0;
+    }
+
+    .footer-col a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 10px;
+      line-height: 16px;
+    }
+
+    .footer-col a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#">Register</a>
+    <a href="#">Log In</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-placeholder"></div>
+    <div class="hero-image">
+      <img src="https://www.figma.com/api/mcp/asset/cd32422c-2770-436a-8ee7-e014ffd97ee9" alt="Child reaching for books">
+    </div>
+  </section>
+
+  <!-- CAROUSEL -->
+  <div class="carousel">
+    <div class="carousel-inner">
+      <span class="carousel-text">Carousel lines (on an n second timer)</span>
+    </div>
+  </div>
+
+  <!-- CONTENT SECTIONS -->
+  <div class="sections">
+
+    <!-- Section 1: placeholder left, text right -->
+    <div class="section-row">
+      <div class="section-placeholder h354"></div>
+      <div class="section-card">
+        <h2>Love reading!</h2>
+        <div class="body-text">
+          <p>We don't need research studies to tell us people who love reading read more - but we have them, just in case.</p>
+          <p>Storyaliz blends tradition and technology to make reading addictive.</p>
+          <p>We are not responsible if you stay up all night. (can we animate this last line somehow, make it funny, use a gif of a kid under the covers??)</p>
+        </div>
+        <div>
+          <a href="#" class="btn-outline">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20.18 9l-5 3.64L16.82 19 12 15.77 7.18 19l1.64-6.36L3.82 9l6.09-.74z"/></svg>
+            Get started
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: text left, placeholder right -->
+    <div class="section-row">
+      <div class="section-card">
+        <h2>The new way to read is the old way to read, only better!</h2>
+        <div class="body-text">
+          <p>During the time of Charles Dickens, Jane Austen, and Leo Tolstoy, reading was a luxury. Stories were doled out, section by section, and crowds clamored for the next.</p>
+          <p>Think of it as Netflix, only on the page.</p>
+          <p>Storyaliz makes you crave reading. One juicy episode at a time.</p>
+        </div>
+        <div>
+          <a href="#" class="btn-outline">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20.18 9l-5 3.64L16.82 19 12 15.77 7.18 19l1.64-6.36L3.82 9l6.09-.74z"/></svg>
+            Watch a demo
+          </a>
+        </div>
+      </div>
+      <div class="section-placeholder h328"></div>
+    </div>
+
+    <!-- Section 3: placeholder left, text right -->
+    <div class="section-row">
+      <div class="section-placeholder h360"></div>
+      <div class="section-card">
+        <h2>Great literature. For your kids, your homeschool, your book club - or yourself.</h2>
+        <div class="body-text">
+          <p>Sign up and just start reading.</p>
+          <p>Or get your kids, your homeschool pod, your class, your bookclub or anyone you want started.</p>
+          <p>Help everyone love reading!</p>
+        </div>
+        <div>
+          <a href="#" class="btn-outline">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20.18 9l-5 3.64L16.82 19 12 15.77 7.18 19l1.64-6.36L3.82 9l6.09-.74z"/></svg>
+            See how groups work
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: text left, placeholder right -->
+    <div class="section-row">
+      <div class="section-card">
+        <h2>Section heading</h2>
+        <div class="body-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Pellentesque lacinia lacinia aliquam. Maecenas lobortis lacus eget turpis venenatis, in pulvinar mauris porta. Vestibulum nec lacus eu ligula tempus congue. Nulla eu efficitur metus. Morbi ut mattis justo, ac lobortis nulla. Nulla a tortor felis.</p>
+          <p>Curabitur bibendum, eros in molestie maximus, lacus nibh cursus nulla, ut vehicula orci lectus in tortor. Praesent facilisis nec mauris a mattis. Maecenas ultrices pellentesque fermentum. Phasellus et orci id turpis scelerisque finibus vitae sed libero. Integer ultricies pellentesque sem sit amet venenatis.</p>
+        </div>
+        <div>
+          <a href="#" class="btn-outline">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20.18 9l-5 3.64L16.82 19 12 15.77 7.18 19l1.64-6.36L3.82 9l6.09-.74z"/></svg>
+            Go to something
+          </a>
+        </div>
+      </div>
+      <div class="section-placeholder h360"></div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-col">
+      <h3>About Storyaliz</h3>
+      <a href="#">The Storyaliz story</a>
+      <a href="#">Press information</a>
+      <a href="#">Investment information</a>
+      <a href="#">Contact Storyaliz</a>
+    </div>
+    <div class="footer-col">
+      <h3>Accounts</h3>
+      <a href="#">Register</a>
+      <a href="#">Paid account</a>
+      <a href="#">Reader customer service</a>
+    </div>
+    <div class="footer-col">
+      <h3>Authors</h3>
+      <a href="#">How to become a Storyaliz author</a>
+      <a href="#">Author customer service</a>
+    </div>
+  </footer>
+
+</body>
+</html>
